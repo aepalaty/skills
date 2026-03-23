@@ -3,23 +3,23 @@
 You have additional SKILLs documented in directories containing a "SKILL.md" file.
 
 These skills are:
- - huggingface-cli -> "skills/cli/SKILL.md"
- - huggingface-community-evals -> "skills/community-evals/SKILL.md"
- - huggingface-datasets -> "skills/datasets/SKILL.md"
- - huggingface-gradio -> "skills/gradio/SKILL.md"
- - huggingface-jobs -> "skills/jobs/SKILL.md"
- - huggingface-llm-trainer -> "skills/llm-trainer/SKILL.md"
- - huggingface-paper-publisher -> "skills/paper-publisher/SKILL.md"
- - huggingface-papers -> "skills/papers/SKILL.md"
- - huggingface-trackio -> "skills/trackio/SKILL.md"
- - huggingface-vision-trainer -> "skills/vision-trainer/SKILL.md"
- - transformers-js -> "skills/transformers.js/SKILL.md"
+ - hf-cli -> "skills/hf-cli/SKILL.md"
+ - huggingface-community-evals -> "skills/huggingface-community-evals/SKILL.md"
+ - huggingface-datasets -> "skills/huggingface-datasets/SKILL.md"
+ - huggingface-gradio -> "skills/huggingface-gradio/SKILL.md"
+ - huggingface-jobs -> "skills/huggingface-jobs/SKILL.md"
+ - huggingface-llm-trainer -> "skills/huggingface-llm-trainer/SKILL.md"
+ - huggingface-paper-publisher -> "skills/huggingface-paper-publisher/SKILL.md"
+ - huggingface-papers -> "skills/huggingface-papers/SKILL.md"
+ - huggingface-trackio -> "skills/huggingface-trackio/SKILL.md"
+ - huggingface-vision-trainer -> "skills/huggingface-vision-trainer/SKILL.md"
+ - transformers-js -> "skills/transformers-js/SKILL.md"
 
 IMPORTANT: You MUST read the SKILL.md file whenever the description of the skills matches the user intent, or may help accomplish their task. 
 
 <available_skills>
 
-huggingface-cli: `"Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing repositories, models, datasets, and Spaces on the Hugging Face Hub. Replaces now deprecated `huggingface-cli` command."`
+hf-cli: `"Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing repositories, models, datasets, and Spaces on the Hugging Face Hub. Replaces now deprecated `huggingface-cli` command."`
 huggingface-community-evals: `Run evaluations for Hugging Face Hub models using inspect-ai and lighteval on local hardware. Use for backend selection, local GPU evals, and choosing between vLLM / Transformers / accelerate. Not for HF Jobs orchestration, model-card PRs, .eval_results publication, or community-evals automation.`
 huggingface-datasets: `Use this skill for Hugging Face Dataset Viewer API workflows that fetch subset/split metadata, paginate rows, search text, apply filters, download parquet URLs, and read size or statistics.`
 huggingface-gradio: `Build Gradio web UIs and demos in Python. Use when creating or editing Gradio apps, components, event listeners, layouts, or chatbots.`
