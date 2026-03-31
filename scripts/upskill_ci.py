@@ -241,7 +241,7 @@ def _judge_config() -> JudgeConfig:
     if provider == "anthropic":
         return JudgeConfig(
             provider="anthropic",
-            model=os.environ.get("UPSKILL_JUDGE_MODEL", "claude-3-5-haiku-latest"),
+            model=os.environ.get("UPSKILL_JUDGE_MODEL", "claude-haiku-4-5-20251001"),
         )
     if provider == "openai":
         return JudgeConfig(
