@@ -93,38 +93,5 @@ def merge_agents(
             if key not in merged[skill_id] and key in agent:
                 merged[skill_id][key] = agent[key]
 
-    return list(merged.values())
-
-
-def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Generate agent definitions from marketplace configs")
-    parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR, help="Directory to write generated agents")
-    parser.add_argument("--dry-run", action="store_true", help="Print output without writing files")
-    args = parser.parse_args(argv)
-
-    print(f"Loading Claude marketplace from {CLAUDE_MARKETPLACE}")
-    claude_marketplace = load_json(CLAUDE_MARKETPLACE)
-    claude_agents = generate_claude_agents(claude_marketplace)
-    print(f"  Found {len(claude_agents)} Claude skill(s)")
-
-    print(f"Loading Cursor marketplace from {CURSOR_MARKETPLACE}")
-    cursor_marketplace = load_json(CURSOR_MARKETPLACE)
-    cursor_agents = generate_cursor_agents(cursor_marketplace)
-    print(f"  Found {len(cursor_agents)} Cursor skill(s)")
-
-    all_agents = merge_agents(claude_agents, cursor_agents)
-    output = {"agents": all_agents, "total": len(all_agents)}
-
-    output_path = args.output_dir / "agents.json"
-    if args.dry_run:
-        print("\n[dry-run] Would write to:", output_path)
-        print(json.dumps(output, indent=2))
-    else:
-        save_json(output, output_path)
-        print(f"\nWrote {len(all_agents)} agent(s) to {output_path}")
-
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+    # Sort by skill ID for consistent output ordering
+    return sorted(merged.values(), key=lambda a: a["id"])
