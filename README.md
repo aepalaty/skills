@@ -52,6 +52,8 @@ Please review our [Security Policy](.github/workflows/SECURITY.md) before report
 3. Submit a pull request
 4. Your skill will be evaluated and added to the leaderboard
 
+> **Personal note:** I'm using this fork primarily to experiment with custom skill definitions for local development workflows. PRs here are for my own testing — please contribute to the upstream [huggingface/skills](https://huggingface.co/skills) repo instead.
+
 ## License
 
 Apache 2.0 — See [LICENSE](LICENSE) for details.
