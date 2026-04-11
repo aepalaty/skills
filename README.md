@@ -61,6 +61,8 @@ Please review our [Security Policy](.github/workflows/SECURITY.md) before report
 > git fetch upstream
 > git merge upstream/main --no-edit
 > ```
+>
+> **Debugging tip:** If a workflow fails locally with `act`, try passing `--container-architecture linux/amd64` — this fixed a platform mismatch issue for me on Apple Silicon.
 
 ## License
 
