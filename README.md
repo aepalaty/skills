@@ -55,6 +55,12 @@ Please review our [Security Policy](.github/workflows/SECURITY.md) before report
 > **Personal note:** I'm using this fork primarily to experiment with custom skill definitions for local development workflows. PRs here are for my own testing — please contribute to the upstream [huggingface/skills](https://huggingface.co/skills) repo instead.
 >
 > **Local setup tip:** After cloning, run `cp .env.example .env` and fill in your `HF_TOKEN` before triggering any workflows locally with `act`.
+>
+> **Sync tip:** To pull in upstream changes without losing local tweaks, run:
+> ```bash
+> git fetch upstream
+> git merge upstream/main --no-edit
+> ```
 
 ## License
 
