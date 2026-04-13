@@ -67,5 +67,3 @@ Please review our [Security Policy](.github/workflows/SECURITY.md) before report
 > **VS Code tip:** Install the [GitHub Actions extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions) to get syntax highlighting and validation for the workflow YAML files — makes editing them much less error-prone.
 >
 > **Workflow caching tip:** I added `cache: pip` to the `setup-python` step in each workflow to speed up repeated local runs with `act`. Cuts install time roughly in half on my machine.
->
-> **Token scopes tip:** When creating your `HF_TOKEN`, make sure it has **write** access to your target Space — read-only tokens will cause the leaderboard push workflows to fail silently with a 403.
