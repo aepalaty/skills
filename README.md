@@ -66,4 +66,4 @@ Please review our [Security Policy](.github/workflows/SECURITY.md) before report
 >
 > **VS Code tip:** Install the [GitHub Actions extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions) to get syntax highlighting and validation for the workflow YAML files — makes editing them much less error-prone.
 >
-> **Workflow caching tip:** I added `cache: pip` to the `setup-python` step in each workflow to speed up repeated local runs with `act`. Without it, dependencies reinstall from scratch every time which gets slow fast.
+> **Workflow caching tip:** I added `cache: pip` to the `setup-python` step in each workflow to speed up repeated local runs with `act` — cuts install time roughly in half on a warm cache.
