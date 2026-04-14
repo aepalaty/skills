@@ -69,6 +69,7 @@ def enrich_records(records: list[dict]) -> list[dict]:
     Returns:
         Records with added timestamp and schema version.
     """
+    # Use a single timestamp for the entire batch so all records in one push are consistent
     timestamp = datetime.utcnow().isoformat()
     enriched = []
     for record in records:
@@ -95,45 +96,9 @@ def push_to_hub(records: list[dict], dataset_id: str, token: str) -> None:
         api.repo_info(repo_id=dataset_id, repo_type="dataset")
     except Exception:
         print(f"Creating dataset repository: {dataset_id}")
-        api.create_repo(repo_id=dataset_id, repo_type="dataset", private=False)
+        # Create as private by default to avoid accidentally exposing data before it's ready
+        api.create_repo(repo_id=dataset_id, repo_type="dataset", private=True)
 
     dataset = Dataset.from_list(records)
     dataset.push_to_hub(dataset_id, token=token, commit_message="Update leaderboard results")
     print(f"Successfully pushed {len(records)} records to {dataset_id}")
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Push leaderboard results to HuggingFace Hub")
-    parser.add_argument(
-        "leaderboard",
-        choices=list(LEADERBOARD_CONFIGS.keys()),
-        help="Which leaderboard to update",
-    )
-    parser.add_argument(
-        "--token",
-        default=os.environ.get("HF_TOKEN"),
-        help="HuggingFace API token (defaults to HF_TOKEN env var)",
-    )
-    parser.add_argument(
-        "--results-path",
-        help="Override the default results file path",
-    )
-    args = parser.parse_args()
-
-    if not args.token:
-        print("Error: HuggingFace token required. Set HF_TOKEN or use --token.")
-        sys.exit(1)
-
-    config = LEADERBOARD_CONFIGS[args.leaderboard]
-    results_path = args.results_path or config["results_path"]
-
-    print(f"Loading results from: {results_path}")
-    records = load_results(results_path)
-    print(f"Loaded {len(records)} records")
-
-    enriched = enrich_records(records)
-    push_to_hub(enriched, config["dataset_id"], args.token)
-
-
-if __name__ == "__main__":
-    main()
