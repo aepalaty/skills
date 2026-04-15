@@ -93,5 +93,5 @@ def merge_agents(
             if key not in merged[skill_id] and key in agent:
                 merged[skill_id][key] = agent[key]
 
-    # Return agents sorted by id for deterministic output
+    # Return agents sorted by id for consistent, diffable output
     return sorted(merged.values(), key=lambda a: a["id"])
